@@ -11,7 +11,7 @@ void setup() {
 }
 
 void loop() {
-  if (hour() >= 18) { // It's currently within hours of operation
+  if (hour() >= 18 && hour() < 22) { // It's currently within hours of operation (18:00 - 22:00)
     sensorValue = analogRead(sensor);
     if (sensorValue > minNightLevel && sensorValue < maxDayLevel) { // Light level is within the disired range
       lightsOn(sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
