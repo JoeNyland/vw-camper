@@ -8,8 +8,6 @@ int maxDayLevel = 600;   // Max light level for day
 int minNightLevel = 200; // Min light level for night
 
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(lights, OUTPUT);
 }
 
 void loop() {
