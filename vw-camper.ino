@@ -3,7 +3,7 @@
 
 int sensor = A0;         // Sensor is connected on analogue pin 0
 int sensorValue;         // Where sensor value is stored
-int lights = 2;          // Lighting system is connected to digital output pin 2
+int lights = 3;          // Pin that the lighting system is connected to
 int maxDayLevel = 600;   // Max light level for day
 int minNightLevel = 200; // Min light level for night
 
@@ -16,23 +16,23 @@ void loop() {
   if (hour() >= 18) { // It's currently within hours of operation
     sensorValue = analogRead(sensor);
     if (sensorValue > minNightLevel && sensorValue < maxDayLevel) { // Light level is within the disired range
-      lightsOn();
-      delay(1000);
+      lightsOn(sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
+      delay(10);
       return;
     }
   }
   lightsOff();
-  delay(1000);
+  delay(10);
   return;
 }
 
-void lightsOn() {
-  digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(lights, HIGH);
+void lightsOn(int level) {
+  analogWrite(LED_BUILTIN, level);
+  analogWrite(lights, level);
 }
 
 void lightsOff() {
-  digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(lights, LOW); 
+  analogWrite(LED_BUILTIN, 0);
+  analogWrite(lights, 0);
 }
 
