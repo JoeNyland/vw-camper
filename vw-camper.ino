@@ -4,7 +4,7 @@
 int sensor = A0;         // Sensor is connected on analogue pin 0
 int sensorValue;         // Where sensor value is stored
 int lights = 3;          // Pin that the lighting system is connected to
-int maxDayLevel = 600;   // Max light level for day
+int maxDayLevel = 900;   // Max light level for day
 int minNightLevel = 200; // Min light level for night
 
 void setup() {
