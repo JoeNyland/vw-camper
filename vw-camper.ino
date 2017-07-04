@@ -15,12 +15,12 @@ void loop() {
     sensorValue = analogRead(sensor);
     if (sensorValue > minNightLevel && sensorValue < minDayLevel) { // Light level is within the disired range
       lightsOn(sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
-      delay(10);
+      delay(10000);
       return;
     }
   }
   lightsOff();
-  delay(10);
+  delay(10000);
   return;
 }
 
