@@ -22,16 +22,15 @@ void loop() {
   }
   lightsOff();
   delay(pollDelay);
-  return;
 }
 
 void lightsOn(int level) {
-  analogWrite(LED_BUILTIN, level);
+  digitalWrite(LED_BUILTIN, HIGH);
   analogWrite(lights, level);
 }
 
 void lightsOff() {
-  analogWrite(LED_BUILTIN, 0);
+  digitalWrite(LED_BUILTIN, LOW);
   analogWrite(lights, 0);
 }
 
