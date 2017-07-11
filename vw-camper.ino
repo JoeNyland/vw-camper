@@ -6,6 +6,7 @@ int sensorValue;         // Where sensor value is stored
 int lights = 3;          // Pin that the lighting system is connected to
 int minDayLevel = 900;   // Min light level for day
 int minNightLevel = 200; // Min light level for night
+int pollDelay = 1800000; // ms between checking the light level
 
 void setup() {
 }
@@ -15,12 +16,12 @@ void loop() {
     sensorValue = analogRead(sensor);
     if (sensorValue > minNightLevel && sensorValue < minDayLevel) { // Light level is within the disired range
       lightsOn(sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
-      delay(10000);
+      delay(pollDelay);
       return;
     }
   }
   lightsOff();
-  delay(10000);
+  delay(pollDelay);
   return;
 }
 
