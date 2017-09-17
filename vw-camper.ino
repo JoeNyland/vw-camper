@@ -8,7 +8,7 @@ int sensorValue;         // Where sensor value is stored
 int lights = 3;          // Pin that the lighting system is connected to
 int minDayLevel = 900;   // Min light level for day
 int minNightLevel = 200; // Min light level for night
-int pollDelay = 1800000; // ms between checking the light level
+int pollDelay = 300000;  // ms between checking the light level
 
 void setup() {
   Serial.begin(9600);
