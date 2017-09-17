@@ -39,7 +39,7 @@ void loop() {
 
   if (now.hour() >= 18 && now.hour() < 22) { // It's currently within hours of operation (18:00 - 22:00)
     sensorValue = analogRead(sensor);
-    if (sensorValue > minNightLevel && sensorValue < minDayLevel) { // Light level is within the disired range
+    if (sensorValue > minNightLevel && sensorValue < minDayLevel) { // Light level is within the desired range
       lightsOn(sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
       delay(pollDelay);
       return;
