@@ -7,7 +7,7 @@ int sensor = A0;         // Sensor is connected on analogue pin 0
 int sensorValue;         // Where sensor value is stored
 int lights = 3;          // Pin that the lighting system is connected to
 int minDayLevel = 900;   // Min light level for day
-int minNightLevel = 200; // Min light level for night
+int minNightLevel = 50;  // Min light level for night
 int pollDelay = 300000;  // ms between checking the light level
 
 void setup() {
