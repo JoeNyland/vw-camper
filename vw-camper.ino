@@ -11,32 +11,13 @@ int minNightLevel = 50;  // Min light level for night
 int pollDelay = 300000;  // ms between checking the light level
 
 void setup() {
-  Serial.begin(9600);
   rtc.begin();
 }
 
 void loop() {
+
+
   DateTime now = rtc.now();
-
-  // {rint current sensor value
-  Serial.print("Sensor value: ");
-  Serial.println(analogRead(sensor));
-
-  // Print current time
-  Serial.print("Time: ");
-  Serial.print(now.day(), DEC);
-  Serial.print('/');
-  Serial.print(now.month(), DEC);
-  Serial.print('/');
-  Serial.print(now.year(), DEC);
-  Serial.print(' ');
-  Serial.print(now.hour(), DEC);
-  Serial.print(':');
-  Serial.print(now.minute(), DEC);
-  Serial.print(':');
-  Serial.print(now.second(), DEC);
-  Serial.println();
-
   if (now.hour() >= 18 && now.hour() < 22) { // It's currently within hours of operation (18:00 - 22:00)
     sensorValue = analogRead(sensor);
     if (sensorValue > minNightLevel && sensorValue < minDayLevel) { // Light level is within the desired range
