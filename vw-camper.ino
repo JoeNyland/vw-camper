@@ -15,8 +15,6 @@ void setup() {
 }
 
 void loop() {
-
-
   DateTime now = rtc.now();
   if (now.hour() >= 18 && now.hour() < 22) { // It's currently within hours of operation (18:00 - 22:00)
     sensorValue = analogRead(sensor);
@@ -26,7 +24,6 @@ void loop() {
       return;
     }
   }
-
   lightsOff();
   delay(pollDelay);
 }
