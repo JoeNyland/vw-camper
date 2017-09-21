@@ -17,22 +17,14 @@ void loop() {
   if (now.hour() >= 18 && now.hour() < 22) { // It's currently within hours of operation (18:00 - 22:00)
     int sensorValue = analogRead(sensor);
     if (sensorValue < minDayLevel) { // Light level is within the desired range
-      lightsOn(sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
+      digitalWrite(LED_BUILTIN, HIGH);
+      analogWrite(lights, sensorValue / 8); // analogRead values go from 0 to 1023, analogWrite values from 0 to 255
       delay(pollDelay);
       return;
     }
   }
-  lightsOff();
-  delay(pollDelay);
-}
-
-void lightsOn(int level) {
-  digitalWrite(LED_BUILTIN, HIGH);
-  analogWrite(lights, level);
-}
-
-void lightsOff() {
   digitalWrite(LED_BUILTIN, LOW);
   analogWrite(lights, 0);
+  delay(pollDelay);
 }
 
