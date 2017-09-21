@@ -7,7 +7,7 @@ int sensor = A0;         // Sensor is connected on analogue pin 0
 int sensorValue;         // Where sensor value is stored
 int lights = 3;          // Pin that the lighting system is connected to
 int minDayLevel = 900;   // Min light level for day
-int pollDelay = 300000;  // ms between checking the light level
+int pollDelay = 1000;    // ms between checking the light level
 
 void setup() {
   rtc.begin();
