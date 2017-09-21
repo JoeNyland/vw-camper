@@ -1,12 +1,11 @@
 #include <Wire.h>
 #include <RTClib.h>
 
-RTC_DS3231 rtc;
-
 int sensor = A0;         // Sensor is connected on analogue pin 0
 int lights = 3;          // Pin that the lighting system is connected to
 int minDayLevel = 900;   // Min light level for day
 int pollDelay = 1000;    // ms between checking the light level
+RTC_DS3231 rtc;          // Load up RTClib
 
 void setup() {
   rtc.begin();
