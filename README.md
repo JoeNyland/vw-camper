@@ -22,7 +22,7 @@ the current sunlight level from outside using an LDR and pull down resistor.
 
 <img width="300" src="http://i.imgur.com/zj6GY50.png">
 
-The Arduino board will server as a power supply to the lights, so I did away with the battery pack
+The Arduino board will serve as a power supply to the lights, so I did away with the battery pack
 that's provided with the lighting kit.
 
 ## Program
