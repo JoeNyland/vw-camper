@@ -18,6 +18,9 @@ void setup() {
     Serial.println("RTC lost power; setting the time");
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   }
+
+  pinMode(lightsPin, OUTPUT);
+  pinMode(sensorPin, INPUT);
 }
 
 void loop() {
